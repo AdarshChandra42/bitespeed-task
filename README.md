@@ -6,7 +6,7 @@ To run the service on a development environment
 
 use the following commands 
 
-git clone https://github.com/AdarshChandra42/bitespeed-task
+git clone https://github.com/AdarshChandra42/bitespeed-task/tree/master
 
 npm install
 
