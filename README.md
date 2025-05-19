@@ -67,7 +67,3 @@ Identifies and manages contact information based on email and phone number.
 - Express.js
 - PostgreSQL
 - Nodemon (for development)
-
-## License
-
-This project is licensed under the MIT License.
