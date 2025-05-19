@@ -4,7 +4,7 @@ This is a backend service that handles contact identification and management.
 
 ## Live Demo
 
-The service is hosted at: https://bitespeed-task-o4vn.onrender.com/identify
+The service is hosted at: https://bitespeed-task-o4vn.onrender.com
 
 ## API Testing
 
