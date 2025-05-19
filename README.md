@@ -1,23 +1,73 @@
-Hosted on https://bitespeed-task-o4vn.onrender.com/identify
+# Bitespeed Backend Service
 
-Postman testing can be done at this endpoint
+This is a backend service that handles contact identification and management.
 
-To run the service on a development environment
+## Live Demo
 
-use the following commands 
+The service is hosted at: https://bitespeed-task-o4vn.onrender.com/identify
 
+## API Testing
+
+You can test the API endpoints using Postman at the following URL:
+https://bitespeed-task-o4vn.onrender.com/identify
+
+## Local Development Setup
+
+Follow these steps to run the service in your local development environment:
+
+1. Clone the repository:
+```bash
 git clone https://github.com/AdarshChandra42/bitespeed-task
+```
 
-inside the bitespeed-task directory, use the following commands
+2. Navigate to the project directory:
+```bash
+cd bitespeed-task
+```
 
+3. Install dependencies:
+```bash
 npm install
+```
 
+4. Install development dependencies:
+```bash
 npm install nodemon -D
+```
 
-create a new database using
-CREATE DATABASE database_name;
+5. Database Setup:
+   - Create a new database:
+   ```sql
+   CREATE DATABASE database_name;
+   ```
+   - Connect to the database and run the schema:
+   ```bash
+   psql -U user_name -d database_name -f schema.sql
+   ```
 
-to connect to the database, 
-psql -U user_name -d database_name -f schema.sql
-
+6. Start the development server:
+```bash
 npm run dev
+```
+
+## Environment Variables
+
+Make sure to set up the following environment variables:
+- `DATABASE_URL`: Your PostgreSQL database connection string
+- `PORT`: The port number for the server (default: 3000)
+
+## API Endpoints
+
+### POST /identify
+Identifies and manages contact information based on email and phone number.
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- PostgreSQL
+- Nodemon (for development)
+
+## License
+
+This project is licensed under the MIT License.
