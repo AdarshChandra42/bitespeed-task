@@ -6,7 +6,7 @@
  */
 export const formatIdentifyResponse = (primaryContactId, contacts) => {
     const primaryContact = contacts.find(c => c.id === primaryContactId);
-    const secondaryContacts = contacts.filter(c => c.linkedId === primaryContactId);
+    const secondaryContacts = contacts.filter(c => c.linked_id === primaryContactId);
     
     // Collect all unique emails and phone numbers
     const emails = Array.from(new Set(contacts
