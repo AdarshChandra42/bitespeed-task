@@ -1,4 +1,4 @@
-API hosted on https://bitespeed-task-o4vn.onrender.com/identify
+Hosted on https://bitespeed-task-o4vn.onrender.com/identify
 
 Postman testing can be done at this endpoint
 
