@@ -13,7 +13,7 @@ class Contact {
     // console.log("rows");
     // console.log(rows);
 
-    if (rows.length === 0) {console.log("no contact found"); return null;}
+    if (rows.length === 0) {console.log("fresh contact"); return null;}
 
     //checking if the input email or phone number is already in the database
     let emailExists = false;
@@ -24,15 +24,15 @@ class Contact {
       if (row.phone_number === phoneNumber) phoneExists = true;
       if (emailExists && phoneExists) break; //connect the two chains
     }
-    
       // If one doesn't exist but we have some matching contacts, create a new secondary contact
-      if((emailExists && phoneNumber === undefined || phoneNumber === null)||(phoneExists && email === undefined || email === null)) {
-        console.log("one is null/undefined");
-        // Find the primary contact to link to
-        let primaryContact;
-        if(rows[0].linked_id === null) {primaryContact = rows[0]}
-        else {primaryContact = await this.findById(rows[0].linked_id)}
-        return primaryContact;
+      if ((emailExists && (phoneNumber === undefined || phoneNumber === null)) || 
+          (phoneExists && (email === undefined || email === null))) {
+          //console.log("one is null/undefined");
+          // Find the primary contact to link to
+          let primaryContact;
+          if(rows[0].linked_id === null) {primaryContact = rows[0]}
+          else {primaryContact = await this.findById(rows[0].linked_id)}
+          return primaryContact;
       }
       else if(!emailExists || !phoneExists) {
         // Find the primary contact to link to
@@ -68,6 +68,8 @@ class Contact {
     }
     // console.log("primaryContacts");
     // console.log(primaryContacts);
+
+
 
     // Find all secondary contacts in the results
     const secondaryContacts = [];
