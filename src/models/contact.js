@@ -25,7 +25,8 @@ class Contact {
       if (emailExists && phoneExists) break; //connect the two chains
     }
       // If one doesn't exist but we have some matching contacts, create a new secondary contact
-      if((emailExists && phoneNumber === undefined)||(phoneExists && email === undefined)) {
+      if((emailExists && phoneNumber === undefined || phoneNumber === null)||(phoneExists && email === undefined || email === null)) {
+        console.log("one is null/undefined");
         // Find the primary contact to link to
         let primaryContact;
         if(rows[0].linked_id === null) {primaryContact = rows[0]}
