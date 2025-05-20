@@ -69,8 +69,6 @@ class Contact {
     // console.log("primaryContacts");
     // console.log(primaryContacts);
 
-
-
     // Find all secondary contacts in the results
     const secondaryContacts = [];
     for (const primaryContact of primaryContacts) {
