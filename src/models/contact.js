@@ -10,8 +10,8 @@ class Contact {
       ORDER BY created_at ASC
     `;
     const { rows } = await db.query(query, [email, phoneNumber]);
-    // console.log("rows");
-    // console.log(rows);
+    console.log("rows");
+    console.log(rows);
 
     if (rows.length === 0) {console.log("no contact found"); return null;}
 
@@ -24,6 +24,7 @@ class Contact {
       if (row.phone_number === phoneNumber) phoneExists = true;
       if (emailExists && phoneExists) break; //connect the two chains
     }
+    
       // If one doesn't exist but we have some matching contacts, create a new secondary contact
       if((emailExists && phoneNumber === undefined || phoneNumber === null)||(phoneExists && email === undefined || email === null)) {
         console.log("one is null/undefined");
@@ -65,8 +66,9 @@ class Contact {
         }
       }
     }
-    // console.log("primaryContacts");
-    // console.log(primaryContacts);
+    console.log("primaryContacts");
+    console.log(primaryContacts);
+
 
 
     // Find all secondary contacts in the results
@@ -84,8 +86,8 @@ class Contact {
       secondaryContacts.push(...linkedRows);
     }
     
-    // console.log("secondaryContacts");
-    // console.log(secondaryContacts);
+    console.log("secondaryContacts");
+    console.log(secondaryContacts);
     
     // If we have multiple primary contacts, we need to merge chains
     if (primaryContacts.length > 1) {
