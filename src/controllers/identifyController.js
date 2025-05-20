@@ -3,10 +3,14 @@ import identifyService from '../services/identifyService.js';
 class IdentifyController {
   async identify(req, res) {
     try {
-      const { email, phoneNumber } = req.body;
+      let { email, phoneNumber } = req.body;
+
+      // Convert empty strings to null
+      email = (!email || email.trim() === '') ? null : email;
+      phoneNumber = (!phoneNumber || phoneNumber.trim() === '') ? null : phoneNumber;
       
       // Basic validation
-      if ((email === undefined || email === null) && (phoneNumber === undefined || phoneNumber === null)) {
+      if (email === null && phoneNumber === null) {
         return res.status(400).json({ 
           error: 'At least one of email or phoneNumber must be provided' 
         });
